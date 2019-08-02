@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>Your guess</th>
+            <th>Bulls</th>
+            <th>Cows</th>
+        </tr>
+    {{with .Sets}}
+        {{ range .}}
+        <tr>
+            <td> {{ .Guess }} </td>
+            <td> {{ .Bulls }} </td>
+            <td> {{ .Cows }} </td>
+        </tr>
+        {{ end }}
+    {{ end }}
+    </table>
+
+    {{ if .Won }}
+        You Won
+        <form method="POST">
+            <input type="submit" name="play_again" value="Play Again">
+        </form>
+    {{ else }}
+        <form method="POST">
+            Enter your next guess
+            <input type="text"  name="guess">
+            <input type="submit" name="submit">
+            <input type="submit" name="restart" value="Restart">
+        </form>
+    {{ end }}
+</body>
+</html>
+  
+                  
